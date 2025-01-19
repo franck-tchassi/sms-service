@@ -3,19 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-
 const About = () => {
- 
-
   return (
     <section className="py-10">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-8">
         {/* Section Image */}
-        <div
-          className="w-full md:w-1/2"
-          
-        >
+        <div className="w-full md:w-1/2">
           <Image
             src="/IMG-20250119-WA0002.jpg" // Chemin vers l'image
             alt="Voiture de SMS Services"
@@ -26,10 +19,7 @@ const About = () => {
         </div>
 
         {/* Section Texte */}
-        <div
-          className="w-full md:w-1/2 text-left"
-          
-        >
+        <div className="w-full md:w-1/2 text-left">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             À propos de SMS Services
           </h2>
@@ -51,4 +41,3 @@ const About = () => {
 };
 
 export default About;
-
