@@ -10,15 +10,21 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import AOS from 'aos'
 import 'aos/dist/aos.css';
+import { FaInfoCircle, FaDollarSign } from 'react-icons/fa';
+
 
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
   const [isServices, setIsServices] = useState(false)
+  
+  
 
   const toggleNavbar = () => {
     setIsClick(!isClick);
   };
   
+ 
+
   const toggleReturn = () =>{
     setIsServices(!isServices);
   }
@@ -34,9 +40,9 @@ const Navbar = () => {
     });
   }, []);
 
-  useEffect(()=>{
   
-  },[])
+
+  
 
   return (
     <>
@@ -46,19 +52,19 @@ const Navbar = () => {
 
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Link href="/" className="text-white">
-                  SMS SERVICES
+                <Link href="/" className="text-blue-700">
+                  SMS <span className="text-green-700">SERVICES</span>
                 </Link>
               </div>
             </div>
 
-            <NavigationMenu className="hidden md:block">
-                <NavigationMenuList className="ml-4 flex items-center space-x-4 ">
+            <NavigationMenu className="hidden md:block ">
+                <NavigationMenuList className="ml-4 flex  items-center  space-x-4 ">
                     {/* Accueil */}
                     <NavigationMenuItem >
                         <NavigationMenuLink
                             href="/"
-                            className=" text-white text-sm"
+                            className=" text-white text-sm text-center flex"
                         >
                         Accueil
                         </NavigationMenuLink>
@@ -67,8 +73,8 @@ const Navbar = () => {
                     {/* Services avec menu déroulant */}
                     <NavigationMenuItem className=""  >
                     <DropdownMenu  >
-                        <DropdownMenuTrigger asChild className="cursor-pointer">
-                           <p className="text-white  text-sm">Services</p>
+                        <DropdownMenuTrigger asChild className="cursor-pointer ">
+                           <p className="text-white flex items-center  text-sm">Services</p>
                         </DropdownMenuTrigger>
 
                         <DropdownMenuContent className="flex flex-col gap-12 p-10 rounded-3xl bg-gradient-to-r from-green-400 to-blue-500 border-none" >
@@ -144,17 +150,17 @@ const Navbar = () => {
                     <NavigationMenuItem >
                       <NavigationMenuLink
                         href="/apropos"
-                        className=" text-white  text-sm"
+                        className=" text-white  text-sm flex items-center"
                       >
                        Apropos
                       </NavigationMenuLink>
                    </NavigationMenuItem>
 
                     {/* Téléphone */}
-                    <span className="text-white   text-sm" >07.71.52.69.27</span>
+                    <span className="text-white text-sm flex items-center" >07.71.52.69.27</span>
 
                     {/* Rendez-vous */}
-                    <Button variant={"outline"} className="snake-border-clockwise " data-aos="fade-right" data-aos-duration="4000">
+                    <Button variant={"outline"} className="snake-border-clockwise flex items-center " data-aos="fade-right" data-aos-duration="4000">
                         <Link href={"/rdv"}>Rendez-vous</Link>
                     </Button>
                 </NavigationMenuList>
@@ -168,7 +174,7 @@ const Navbar = () => {
                 onClick={toggleNavbar}
               >
                 {isClick ? (
-                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-6 w-6 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -193,92 +199,147 @@ const Navbar = () => {
         </div>
 
         {isClick && (
-          <div className="absolute top-0 left-0 w-full h-screen bg-black  z-50  md:hidden">
-            <div className="flex justify-between p-4 z-50">
-              <Link href="/" className="text-white ">
-                SMS SERVICES
+          <div className="absolute top-0 left-0 w-full h-screen bg-white  z-50 md:hidden">
+            <div className="flex justify-between p-4 z-50 items-center">
+              <Link href="/" className="text-blue-700" onClick={toggleNavbar}>
+                SMS <span className="text-green-700">SERVICES</span>
               </Link>
-              <button className="text-white text-3xl" onClick={toggleNavbar}>
+              <button className="text-black text-3xl" onClick={toggleNavbar}>
                 &times;
               </button>
             </div>
-            <div className="px-4 pt-2 pb-3 space-y-8 sm:px-3 ">
-              <Link href="/" className="text-white block h hover:text-gray-300 text-sm">
-                Accueil
-                
-              </Link>
 
-              <p className="text-white block hover:text-gray-300 text-sm flex items-center justify-between" onClick={toggleReturn}>
-                Services
-                <ChevronRight />
-              </p>
-
-              <Link href="/apropos" className="text-white block  hover:text-gray-300 text-sm">
-                Apropos
-              </Link>
-
-              <span className="text-white block text-sm">
+            <div className="flex flex-col flex-1 justify-between">
+              <div className="px-4 pt-2 pb-3 space-y-8 sm:px-3 text-black">
+                <Link href="/" className=" block hover:text-gray-300 text-sm" onClick={toggleNavbar}>
+                  Accueil
+                </Link>
+                <p className=" block hover:text-gray-300 text-sm flex items-center justify-between cursor-pointer" onClick={toggleReturn}>
+                  Services
+                  <ChevronRight />
+                </p>
+                <Link href="/apropos" className=" block hover:text-gray-300 text-sm" onClick={toggleNavbar}>
+                  À propos
+                </Link>
+                <span className=" block text-sm">
                   07.71.52.69.27
-              </span>
-               
-              <Link href="/rdv" className="text-white block  hover:text-gray-300 text-sm">
-                Rendez-vous
-              </Link>
+                </span>
+              </div>
+
+              {/* Fixer le bouton "Rendez-vous" en bas de l'écran */}
+              <div className="px-4 py-4 fixed bottom-0 left-0 w-full bg-white bg-opacity-90 z-50 flex justify-center items-center">
+                <button className=" w-36 py-3 bg-blue-700 text-white rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105 focus:outline-none flex justify-center items-center">
+                  <Link href="/rdv" onClick={toggleNavbar} className="text-white text-sm font-semibold">
+                    Rendez-vous
+                  </Link>
+                </button>
+              </div>
             </div>
           </div>
         )}
 
         {isServices?
           (
-          <div className="absolute top-0 left-0 w-full h-screen bg-black  z-50 md:hidden">
+          <div className="absolute top-0 left-0 w-full h-screen bg-white  z-50 md:hidden">
             <div className="flex justify-between p-4 z-50">
-              <p className="text-white text-lg flex items-center " onClick={toggleReturn}>
+              <p className="text-blue-700 text-3xl flex items-center  cursor-pointer" onClick={toggleReturn}>
                 <ChevronLeft />
-                Retour
               </p>
-              <button className="text-white text-3xl" onClick={toggleCloseAll}>
+              <button className="text-black text-3xl" onClick={toggleCloseAll}>
                 &times;
               </button>
             </div>
 
-            <div className="p-2 flex flex-col gap-9">
+            <div className="p-8 flex flex-col gap- max-h-[80vh] overflow-y-auto">
               {/* Services details */}
-              <div className="p-4  flex flex-col gap-4">
-                <p className="text-white text-lg">Lavage Extérieur</p>
-                <a href="/exterieur" className="block  text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/exterieur/#exterieur" className="block text-white text-sm">Notre Tarification</a>
+              <div className=" border-t-4 border-b-4 border- py-8">
+                <div className=" flex flex-col gap-4 max-w-[60%] ">
+                  <p className=" text-lg">Lavage Extérieur</p>
+                  <Link href="/exterieur" className="flex flex-row items-center gap-2 text-sm">
+                   <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/exterieur/#exterieur" className="flex flex-row items-center gap-2 text-sm">
+                    <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
-
-              <div className="p-4  flex flex-col gap-4">
-                <p className="text-lg text-white">Lavage Intérieur</p>
-                <a href="/interieur" className="block text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/interieur/#interieur" className="block text-white text-sm">Notre Tarification</a>
+              <div className="  border-b-8 border-transparent/5 py-8">
+                <div className="flex flex-col gap-4 max-w-[60%]">
+                  <p className="text-lg ">Lavage Intérieur</p>
+                  <Link href="/interieur" className="flex flex-row items-center gap-2 text-sm">
+                    <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/interieur/#interieur" className="flex flex-row items-center gap-2 text-sm">
+                   <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
-
-              <div className="p-4 flex flex-col gap-4">
-                <p className="text-lg text-white">Lavage Complet</p>
-                <a href="/complet" className="block text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/complet/#complet" className="block text-white text-sm">Notre Tarification</a>
+              <div className="  border-b-8 border-transparent/5 py-8">
+                <div className="flex flex-col gap-4 max-w-[60%]">
+                  <p className="text-lg ">Lavage Complet</p>
+                  <Link href="/complet" className="flex flex-row items-center gap-2 text-sm">
+                    <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/complet/#complet" className="flex flex-row items-center gap-2 text-sm">
+                    <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
-
-              <div className="p-4  flex flex-col gap-4">
-                <p className="text-lg text-white">Formule Sièges</p>
-                <a href="/sieges" className="block text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/sieges/#sieges" className="block text-white text-sm">Notre Tarification</a>
+              <div className="  border-b-8 border-transparent/5 py-8">
+                <div className="flex flex-col gap-4 max-w-[60%]">
+                  <p className="text-lg">Formule Sièges</p>
+                  <Link href="/sieges" className="flex flex-row items-center gap-2 text-sm">
+                    <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/sieges/#sieges" className="flex flex-row items-center gap-2 text-sm">
+                    <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
-
-              <div className="p-4  flex flex-col gap-4">
-                <p className="text-lg text-white">Formule Intégrale</p>
-                <a href="/integrale" className="block text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/integrale/#integrale" className="block text-white text-sm">Notre Tarification</a>
+              <div className="  border-b-8 border-transparent/5 py-8">
+                <div className="flex flex-col gap-4 max-w-[60%]">
+                  <p className="text-lg">Formule Intégrale</p>
+                  <Link href="/integrale" className="flex flex-row items-center gap-2 text-sm">
+                    <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/integrale/#integrale" className="flex flex-row items-center gap-2 text-sm">
+                    <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
-
-              <div className="p-4  flex flex-col gap-4">
-                <p className="text-lg text-white">Services à la carte</p>
-                <a href="/carte" className="block text-white text-sm">Notre Prestation en Détail</a>
-                <a href="/carte/#carte" className="block text-white text-sm">Notre Tarification</a>
+              <div className="  border-b-8 border-transparent/5 py-8">
+                <div className="flex flex-col gap-4 max-w-[60%]">
+                  <p className="text-lg ">Services à la carte</p>
+                  <Link href="/carte" className=" text-sm flex flex-row items-center gap-2">
+                    <FaInfoCircle className="" />
+                    Notre Prestation en Détail
+                  </Link>
+                  <Link href="/carte/#carte" className="text-sm flex flex-row items-center gap-2">
+                    <FaDollarSign />
+                    Notre Tarification
+                  </Link>
+                </div>
               </div>
             </div>
+
+            {/* Fixer le bouton "Rendez-vous" en bas de l'écran */}
+            <div className="px-4 py-4 fixed bottom-0 left-0 w-full  bg-opacity-90 z-50 flex justify-center items-center">
+                <button className=" w-36 py-3 bg-blue-700  rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105 focus:outline-none flex justify-center items-center">
+                  <Link href="/rdv" onClick={toggleCloseAll} className="text-white text-sm font-semibold">
+                    Rendez-vous
+                  </Link>
+                </button>
+              </div>
           </div>)
           :
           null

@@ -4,7 +4,7 @@
 import Image from "next/image";
 import avis from "../../../list_avis"; // Chemin vers votre liste d'avis
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation du CSS pour les animations
 
@@ -16,12 +16,13 @@ const Avis = () => {
       prevIndex === avis.length - 1 ? 0 : prevIndex + 1
     );
   };
-
+  
+  /*
   const prevAvis = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? avis.length - 1 : prevIndex - 1
     );
-  };
+  }; */
 
   useEffect(() => {
     AOS.init(); // Initialisation d'AOS pour les animations

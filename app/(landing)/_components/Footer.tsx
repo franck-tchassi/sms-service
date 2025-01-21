@@ -13,10 +13,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-black/90 text-gray-500 py-10 ">
-      <div className="container mx-auto flex flex-wrap md:flex-nowrap items-center justify-around gap-8 px-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-5">
         {/* Section 1 : Informations */}
         <div
-          className="flex flex-col items-start justify-center  md:text-left"
+          className="flex flex-col items-start justify-center md:text-left"
           data-aos="fade-up"
           data-aos-duration="1500"
         >
@@ -31,7 +31,7 @@ const Footer = () => {
 
         {/* Section 2 : Liens rapides */}
         <div
-          className=" md:text-left"
+          className="md:text-left"
           data-aos="fade-up"
           data-aos-duration="1800"
         >
@@ -57,16 +57,16 @@ const Footer = () => {
 
         {/* Section 3 : Réseaux sociaux */}
         <div
-          className="text-center md:text-left"
+          className=" md:text-left"
           data-aos="fade-up"
           data-aos-duration="2000"
         >
           <h4 className="text-sm font-semibold mb-4 text-white">Suivez-nous</h4>
-          <div className="flex justify-center md:justify-start space-x-4 text-white">
+          <div className="flex md:justify-start space-x-4 text-white">
             <Link href="https://facebook.com">
               <FaFacebook className="text-xl hover:text-blue-500" />
             </Link>
-            <Link href="https://tiktok.com">
+            <Link href="https://www.tiktok.com/@sms.services84">
               <FaTiktok className="text-xl hover:text-black" />
             </Link>
             <Link href="https://instagram.com">
@@ -76,7 +76,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-10 text-center border-t border-gray-700 pt-5">
+
+      <div className="mt-10 border-t border-gray-700 pt-5 px-5">
         <p className="text-sm text-white">
           © 2024 Sms Services. Tous droits réservés.
         </p>
