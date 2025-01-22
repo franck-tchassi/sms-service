@@ -104,7 +104,7 @@ const ALaCarte = () => {
           À la Carte
         </h1>
         <p className="text-lg px-6" data-aos="fade-up" data-aos-duration="1800">
-          Nos services à la carte sont conçus pour répondre à vos besoins spécifiques. Choisissez parmi une gamme complète de prestations pour entretenir et améliorer l'apparence de votre véhicule.
+          Nos services à la carte sont conçus pour répondre à vos besoins spécifiques. Choisissez parmi une gamme complète de prestations pour entretenir et améliorer l&apos;apparence de votre véhicule.
         </p>
       </div>
 

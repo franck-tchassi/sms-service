@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent,  CardFooter, CardHeader} from "@/components/ui/card";
 import { FaCheck } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Clock9 } from "lucide-react";
