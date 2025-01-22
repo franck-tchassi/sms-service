@@ -73,7 +73,7 @@ const Navbar = () => {
                     {/* Services avec menu déroulant */}
                     <NavigationMenuItem className=""  >
                     <DropdownMenu  >
-                        <DropdownMenuTrigger asChild className="cursor-pointer ">
+                        <DropdownMenuTrigger asChild className="cursor-pointer py-4">
                            <p className="text-white flex items-center  text-sm">Services</p>
                         </DropdownMenuTrigger>
 
@@ -252,7 +252,7 @@ const Navbar = () => {
 
             <div className="p-8 flex flex-col gap- max-h-[80vh] overflow-y-auto">
               {/* Services details */}
-              <div className=" border-t-4 border-b-4 border- py-8">
+              <div className=" border-t-4 border-b-  py-8">
                 <div className=" flex flex-col gap-4 max-w-[60%] ">
                   <p className=" text-lg">Lavage Extérieur</p>
                   <Link href="/exterieur" className="flex flex-row items-center gap-2 text-sm">
@@ -265,7 +265,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="  border-b-8 border-transparent/5 py-8">
+              <div className="  border-t-4 border-b- py-8">
                 <div className="flex flex-col gap-4 max-w-[60%]">
                   <p className="text-lg ">Lavage Intérieur</p>
                   <Link href="/interieur" className="flex flex-row items-center gap-2 text-sm">
@@ -278,7 +278,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="  border-b-8 border-transparent/5 py-8">
+              <div className=" border-t-4 border-b- py-8">
                 <div className="flex flex-col gap-4 max-w-[60%]">
                   <p className="text-lg ">Lavage Complet</p>
                   <Link href="/complet" className="flex flex-row items-center gap-2 text-sm">
@@ -291,7 +291,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="  border-b-8 border-transparent/5 py-8">
+              <div className=" border-t-4 border-b- py-8">
                 <div className="flex flex-col gap-4 max-w-[60%]">
                   <p className="text-lg">Formule Sièges</p>
                   <Link href="/sieges" className="flex flex-row items-center gap-2 text-sm">
@@ -304,7 +304,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="  border-b-8 border-transparent/5 py-8">
+              <div className="border-t-4 border-b- py-8">
                 <div className="flex flex-col gap-4 max-w-[60%]">
                   <p className="text-lg">Formule Intégrale</p>
                   <Link href="/integrale" className="flex flex-row items-center gap-2 text-sm">
@@ -317,7 +317,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div className="  border-b-8 border-transparent/5 py-8">
+              <div className="border-t-4 border-b-4 py-8">
                 <div className="flex flex-col gap-4 max-w-[60%]">
                   <p className="text-lg ">Services à la carte</p>
                   <Link href="/carte" className=" text-sm flex flex-row items-center gap-2">

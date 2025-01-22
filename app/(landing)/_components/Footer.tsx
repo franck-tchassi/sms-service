@@ -21,7 +21,7 @@ const Footer = () => {
           data-aos-duration="1500"
         >
           <h4 className="text-white text-sm font-semibold mb-4">SMS SERVICES</h4>
-          <div className="mt-4 text-sm">
+          <div className=" text-sm">
             <p>240 Rte d&apos;Avignon, 84250 Le Thor</p>
             <p>+33 07 71 52 69 27</p>
             <p>Lundi à Samedi: 9h30 à 19h30</p>

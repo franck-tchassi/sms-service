@@ -74,7 +74,7 @@ const RdvPage = () => {
             type="email"
             required
             placeholder="Entrez votre email"
-            className="w-full p-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full p-2 text-sm  rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
 
@@ -86,7 +86,7 @@ const RdvPage = () => {
             name="message"
             required
             placeholder="Ajoutez un message"
-            className="w-full p-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full p-2 text-sm rounded-lg border h-24 border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
 

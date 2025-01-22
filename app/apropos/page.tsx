@@ -20,21 +20,41 @@ const AboutPage: React.FC = () => {
   return (
     <div className="bg-gray-50">
       {/* Titre et Image */}
-      <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-20 text-center">
-        <h1 className="lg:text-2xl font-extrabold" data-aos="fade-up">
-          À propos de nous
-        </h1>
+      <div className="relative text-white text-center">
+      {/* Conteneur de l'image */}
+        <div className="relative h-[200px]">
+          <Image
+            src="/IMG-20250119-WA0012.jpg"
+            alt="Voiture écologique"
+            fill
+            className="object-cover"
+            quality={100}
+          />
+          {/* Texte positionné sur l'image */}
+          <div className="absolute inset-0 flex items-center  bg-black/50">
+            <h1 className="lg:text-4xl text-2xl font-extrabold " data-aos="fade-up">
+              À PROPOS DE NOUS
+            </h1>
+          </div>
+        </div>
       </div>
+
 
       <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-12 py-24 px-2">
         {/* Image centrée */}
         <div className="flex justify-center lg:w-1/3 mb-8 lg:mb-0">
+        <div className="flex justify-center lg:w-1/3 mb-8 lg:mb-0">
           <Image
-            src="IMG-20250119-WA0012.jpg" // Remplacez par le chemin réel de votre image
+            src="/IMG-20250119-WA0012.jpg"
             alt="À propos de nous"
             className="w-full max-w-md rounded-lg shadow-lg"
+            layout="intrinsic"
+            height={800}  // Vous spécifiez ici une dimension, l'autre sera calculée
+            width={600}   // La largeur que vous souhaitez
             data-aos="fade-up"
           />
+        </div>
+
         </div>
 
         {/* Texte et sections */}
