@@ -1,5 +1,28 @@
+import { Card, CardContent, CardFooter,  CardHeader } from "@/components/ui/card";
+import { MoveRight } from "lucide-react";
 import Image from "next/image";
 
+//interface tarif = {}
+const tarifaction = [
+
+  {
+    sieges: [
+      "Formule Sièges",
+      "Pressing des sièges",
+      "Pressing des tapis"
+    ],
+      
+    prices:[
+       "129",
+      "139",
+      "149"
+    ]
+      
+      
+    
+  }
+  
+]
 
 const FormuleIntegrale = () => {
     return (
@@ -21,7 +44,7 @@ const FormuleIntegrale = () => {
               style={{ lineHeight: "2" }} // Réduction de l'espacement vertical
               data-aos="fade-up"
             >
-              FORMULE INTEGRALE
+              FORMULE INTÉGRALE
             </h1>
             <p
               className="md:text-lg text-sm px-4 text-center" // Réduction du padding horizontal et centrage
@@ -115,28 +138,38 @@ const FormuleIntegrale = () => {
                     className="object-cover"
                     quality={100}
             />
-                
-            <div className=" flex flex-col items-center p-11 absolute inset-0 bg-black/50 justify-center text-white">
+
+            <div className=" flex flex-col items-center p-11 absolute inset-0 bg-black/50 justify-center text-white gap-4">
                 <h2 className="text-3xl font-bold ">Notre Tarification</h2>
-                <div className=" flex flex-col ">
-                    <h2>Formule Intégrale</h2>
-                    <ul className="flex items-center gap-4">
-                        <div>
-                                <li>Formule Sièges</li> 
-                                <li>Pressing des sièges</li>
-                                <li>Pressing des tapis</li>  
-                        </div>
-                        <div>
-                                <span>............................................</span>
-                        </div>
-                        <div>
-                                <li>129£</li>
-                                <li>139£</li>
-                                <li>149£</li>
-                        </div>
-                    </ul>
-                </div>
+                {tarifaction.map((tarif) =>
+                  <Card
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        className="rounded  flex items-center"
+                  >
+                      <CardHeader className="p-4 bg-white/95 ">
+                          {tarif.sieges.map((sieg) =>
+                          <div className="flex  mt-2 text-sm md:text-base">
+                            {sieg}
+                          </div>
+                          )}
+                      </CardHeader>
+
+                      <CardContent className="p-4 bg-white">
+                          <MoveRight />
+                      </CardContent>
+
+                      <CardFooter className="bg-white p-4 text-center flex flex-col">
+                          {tarif.prices.map((px, index) => (
+                            <div key={index} className="mb-2"> 
+                              {px}£
+                            </div>
+                          ))}
+                      </CardFooter>
+                  </Card>
+                )}
             </div>
+                
         </div>
   
       </div>

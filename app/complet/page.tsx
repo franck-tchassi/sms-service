@@ -1,5 +1,29 @@
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { MoveRight } from "lucide-react";
 import Image from "next/image";
 
+//interface tarif = {}
+const tarifaction = [
+
+  {
+    sieges: [
+      "Lavage Intérieur",
+      "Lavage Extérieur",
+      "Nettoyage de portes",
+      "Aspiration du coffre"
+    ],
+      
+    prices:[
+       "49",
+      "59",
+      "75"
+    ]
+      
+      
+    
+  }
+  
+]
 
 
 const completPage = () => {
@@ -112,36 +136,45 @@ const completPage = () => {
                 {/* Image d'Arrière-Plan */}
               
                
-               <Image
+              <Image
                     src="/IMG-20250119-WA0012.jpg"
                     alt="Voiture écologique"
                     fill
                     className="object-cover"
                     quality={100}
-                />
+              />
+
+              <div className=" flex flex-col items-center p-11 absolute inset-0 bg-black/50 justify-center text-white gap-4">
+                  <h2 className="text-3xl font-bold ">Notre Tarification</h2>
+                  {tarifaction.map((tarif) =>
+                    <Card
+                          data-aos="fade-up"
+                          data-aos-duration="1000"
+                          className="rounded  flex items-center"
+                    >
+                        <CardHeader className="p-4 bg-white/95 ">
+                            {tarif.sieges.map((sieg) =>
+                            <div className="flex  mt-2 text-sm md:text-base">
+                              {sieg}
+                            </div>
+                            )}
+                        </CardHeader>
+
+                        <CardContent className="p-4 bg-white">
+                            <MoveRight />
+                        </CardContent>
+
+                        <CardFooter className="bg-white p-4 text-center flex flex-col">
+                            {tarif.prices.map((px, index) => (
+                              <div key={index} className="mb-2"> 
+                                {px}£
+                              </div>
+                            ))}
+                        </CardFooter>
+                    </Card>
+                  )}
+              </div>
                 
-                <div className=" flex flex-col items-center p-11 absolute inset-0 bg-black/50 justify-center text-white">
-                    <h2 className="text-3xl font-bold ">Notre Tarification</h2>
-                    <div className=" flex flex-col ">
-                        <h2>Lavage Complet</h2>
-                        <ul className="flex items-center gap-4">
-                            <div>
-                                <li>Lavage Intérieur</li>
-                                <li>Lavage Extérieur</li> 
-                                <li>Nettoyage de portes</li>
-                                <li>Aspiration du coffre</li>  
-                            </div>
-                            <div>
-                                <span>............................................</span>
-                            </div>
-                            <div>
-                                <li>49£</li>
-                                <li>59£</li>
-                                <li>75£</li>
-                            </div>
-                        </ul>
-                    </div>
-               </div>
             </div>
 
           
