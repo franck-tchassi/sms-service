@@ -5,6 +5,7 @@ import { useFormStatus } from "react-dom";
 import { sendMessage } from "./_actions/actions"; // Import de l'action côté serveur
 import { ButtonSubmit } from "./ButtonSubmit";
 import { responseMessages } from "./_actions/response-message";
+import Image from "next/image";
 
 // Déclaration du composant SubmitButton
 const SubmitButton: React.FC = () => {
@@ -19,9 +20,27 @@ const RdvPage = () => {
   return (
     <div className="bg-gray-50">
       {/* En-tête */}
-      <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-20 text-center">
-        <h1 className="text-3xl font-extrabold">Prise de rendez-vous</h1>
-        <p className="text-lg px-6">Sélectionnez une date pour prendre rendez-vous.</p>
+      <div className="relative text-white text-center">
+        {/* Conteneur de l'image */}
+        <div className="relative h-[200px]">
+          <Image
+            src="/IMG-20250119-WA0012.jpg"
+            alt="Voiture écologique"
+            fill
+            className="object-cover"
+            quality={100}
+          />
+          {/* Texte positionné sur l'image */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50 px-4 sm:px-6 lg:px-8">
+            <h1
+              className="text-2xl sm:text-3xl mt-0 mb-0 md:text-4xl lg:text-5xl font-extrabold"
+              style={{ lineHeight: "200px" }} // Assurez l'alignement
+              data-aos="fade-up"
+            >
+              PRISE DE RENDEZ-VOUS
+            </h1>
+          </div>
+        </div>
       </div>
 
       {/* Formulaire */}

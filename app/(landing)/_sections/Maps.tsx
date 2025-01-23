@@ -36,6 +36,9 @@ const Maps = () => {
               <p>
                 <strong>Téléphone :</strong> +33 07 71 52 69 27
               </p>
+              <p>
+                <strong>Email :</strong> smsservices84thor@gmail.com
+              </p>
             </div>
             
           </div>

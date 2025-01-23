@@ -18,6 +18,7 @@ const Services = () => {
     {
       title: "Lavage Intérieur",
       duration: "1h",
+      price: "dès* £30.00" ,
       features: [
         "Aspiration des moquettes",
         "Aspiration des contre-portes",
@@ -30,6 +31,7 @@ const Services = () => {
     {
       title: "Lavage Extérieur",
       duration: "1h",
+      price: "dès* £25.00" ,
       features: [
         "Nettoyage de la carrosserie",
         "Nettoyage des jantes",
@@ -42,6 +44,7 @@ const Services = () => {
     {
       title: "Lavage Complet",
       duration: "2h",
+      price: "dès* £49.00" ,
       features: [
         "Lavage Intérieur",
         "Lavage Extérieur",
@@ -69,6 +72,10 @@ const Services = () => {
               <div className="flex items-center justify-center mt-2 text-sm md:text-base">
                 <Clock9 />
                 <span className="ml-1">{service.duration}</span>
+              </div>
+              <div className="flex items-center justify-center mt-2 text-sm md:text-base">
+                
+                <span className="ml-1 text-green-500">{service.price}</span>
               </div>
             </CardHeader>
 

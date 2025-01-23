@@ -21,7 +21,7 @@ const AboutPage: React.FC = () => {
     <div className="bg-gray-50">
       {/* Titre et Image */}
       <div className="relative text-white text-center">
-      {/* Conteneur de l'image */}
+        {/* Conteneur de l'image */}
         <div className="relative h-[200px]">
           <Image
             src="/IMG-20250119-WA0012.jpg"
@@ -31,8 +31,12 @@ const AboutPage: React.FC = () => {
             quality={100}
           />
           {/* Texte positionné sur l'image */}
-          <div className="absolute inset-0 flex items-center  bg-black/50">
-            <h1 className="lg:text-4xl text-2xl font-extrabold " data-aos="fade-up">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/50 px-4 sm:px-6 lg:px-8">
+            <h1
+              className="text-2xl sm:text-3xl mt-0 mb-0 md:text-4xl lg:text-5xl font-extrabold"
+              style={{ lineHeight: "200px" }} // Assurez l'alignement
+              data-aos="fade-up"
+            >
               À PROPOS DE NOUS
             </h1>
           </div>

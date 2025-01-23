@@ -5,15 +5,39 @@ import Image from "next/image";
 const completPage = () => {
     return (
         <div className="bg-gray-50">
-          <div 
-            className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-20 text-center"
-          >
-            <h1 className="text-3xl font-extrabold mb-4" data-aos="fade-up" data-aos-duration="1800">Lavage Complet</h1>
-            <p className="text-lg px-6" data-aos="fade-up" data-aos-duration="1800">
-                Le lavage complet offre une solution intégrale pour nettoyer et protéger votre véhicule
-                à l&apos;intérieur comme à l&apos;extérieur.
-            </p>
+          <div className="relative text-white text-center">
+            {/* Conteneur de l'image */}
+            <div className="relative h-[200px]">
+              <Image
+                src="/IMG-20250119-WA0012.jpg"
+                alt="Voiture écologique"
+                fill
+                className="object-cover"
+                quality={100}
+              />
+              {/* Texte positionné sur l'image */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 sm:px-6 lg:px-8">
+                <h1
+                  className="text-2xl sm:text-3xl mt-8 md:text-4xl lg:text-5xl font-extrabold " // Ajout d'un margin-bottom réduit
+                  style={{ lineHeight: "2" }} // Réduction de l'espacement vertical
+                  data-aos="fade-up"
+                >
+                  LAVAGE COMPLET
+                </h1>
+                <p
+                  className="md:text-lg text-sm px-4 text-center" // Réduction du padding horizontal et centrage
+                  style={{ marginTop: "0.1rem" }} // Option pour rapprocher encore plus
+                  data-aos="fade-up"
+                  data-aos-duration="1800"
+                >
+                  Le lavage complet offre une solution intégrale pour nettoyer et protéger votre véhicule
+                  à l&apos;intérieur comme à l&apos;extérieur.
+                </p>
+              </div>
+
+            </div>
           </div>
+          
           
           <div className="flex justify-center p-12 " data-aos="fade-up" data-aos-duration="1800">
             <Image
@@ -27,7 +51,7 @@ const completPage = () => {
           </div>
           
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6" data-aos="fade-up" data-aos-duration="1800">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:p-32 sm:14" data-aos="fade-up" data-aos-duration="1800">
             <div className="flex flex-col justify-center  p-6">
               <h2 className="text-2xl font-semibold mb-2">Lavage Extérieur</h2>
               <p className="text-gray-600 mb-2">

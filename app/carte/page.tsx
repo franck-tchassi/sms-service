@@ -99,14 +99,36 @@ const ALaCarte = () => {
     <div className="bg-gray-50">
       
       {/* En-tête */}
-      <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white py-20 text-center">
-        <h1 className="text-3xl font-extrabold mb-4" data-aos="fade-up" data-aos-duration="1800">
-          À la Carte
-        </h1>
-        <p className="text-lg px-6" data-aos="fade-up" data-aos-duration="1800">
-          Nos services à la carte sont conçus pour répondre à vos besoins spécifiques. Choisissez parmi une gamme complète de prestations pour entretenir et améliorer l&apos;apparence de votre véhicule.
-        </p>
+      <div className="relative text-white text-center">
+        <div className="relative h-[200px]">
+            <Image
+              src="/IMG-20250119-WA0012.jpg"
+              alt="Voiture écologique"
+              fill
+              className="object-cover"
+              quality={100}
+            />
+            {/* Texte positionné sur l'image */}
+            <div className="absolute inset-0 flex flex-col items-center  justify-center bg-black/50 px-4 sm:px-6 lg:px-8">
+              <h1
+                className="text-2xl sm:text-3xl mt-12 md:text-4xl lg:text-5xl font-extrabold " // Ajout d'un margin-bottom réduit
+                style={{ lineHeight: "2" }} // Réduction de l'espacement vertical
+                data-aos="fade-up"
+              >
+                À LA CARTE
+              </h1>
+              <p
+                className="md:text-lg text-sm px-4 text-center" // Réduction du padding horizontal et centrage
+                style={{ marginTop: "0.1rem" }} // Option pour rapprocher encore plus
+                data-aos="fade-up"
+                data-aos-duration="1800"
+              >
+                Nos services à la carte sont conçus pour répondre à vos besoins spécifiques. Choisissez parmi une gamme complète de prestations pour entretenir et améliorer l&apos;apparence de votre véhicule.
+              </p>
+            </div>
+        </div>
       </div>
+      
 
       {/* Image de présentation */}
       <div className="flex justify-center p-12" data-aos="fade-up" data-aos-duration="1800">
