@@ -141,15 +141,16 @@ const FormuleIntegrale = () => {
 
             <div className=" flex flex-col items-center p-11 absolute inset-0 bg-black/50 justify-center text-white gap-4">
                 <h2 className="text-3xl font-bold ">Notre Tarification</h2>
-                {tarifaction.map((tarif) =>
+                {tarifaction.map((tarif, index) =>
                   <Card
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         className="rounded  flex items-center"
+                        key={index}
                   >
                       <CardHeader className="p-4 bg-white/95 ">
-                          {tarif.sieges.map((sieg) =>
-                          <div className="flex  mt-2 text-sm md:text-base">
+                          {tarif.sieges.map((sieg, index) =>
+                          <div className="flex  mt-2 text-sm md:text-base" key={index}>
                             {sieg}
                           </div>
                           )}
