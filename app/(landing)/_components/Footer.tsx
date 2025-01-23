@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaFacebook, FaTiktok, FaInstagram } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Importation des styles pour AOS
+import Image from "next/image";
 
 const Footer = () => {
   useEffect(() => {
@@ -20,7 +21,15 @@ const Footer = () => {
           data-aos="fade-up"
           data-aos-duration="1500"
         >
-          <h4 className="text-white text-sm font-semibold mb-4">SMS SERVICES</h4>
+          
+          <Image 
+              src="/logo-smsservices.png"
+              alt="logo sms services"
+              className="object-cover"
+              quality={100}
+              width={150}
+              height={25}
+          />
           <div className=" text-sm">
             <p>240 Rte d&apos;Avignon, 84250 Le Thor</p>
             <p>+33 07 71 52 69 27</p>

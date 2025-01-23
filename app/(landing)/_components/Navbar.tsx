@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import AOS from 'aos'
 import 'aos/dist/aos.css';
 import { FaInfoCircle, FaDollarSign } from 'react-icons/fa';
+import Image from "next/image";
 
 
 const Navbar = () => {
@@ -53,7 +54,14 @@ const Navbar = () => {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link href="/" className="text-blue-700">
-                  SMS <span className="text-green-700">SERVICES</span>
+                  <Image 
+                    src="/logo-smsservices.png"
+                    alt="logo sms services"
+                    className="object-cover"
+                    quality={100}
+                    width={150}
+                    height={25}
+                  />
                 </Link>
               </div>
             </div>
@@ -202,8 +210,15 @@ const Navbar = () => {
           <div className="absolute top-0 left-0 w-full h-screen bg-white  z-50 md:hidden">
             <div className="flex justify-between p-4 z-50 items-center">
               <Link href="/" className="text-blue-700" onClick={toggleNavbar}>
-                SMS <span className="text-green-700">SERVICES</span>
-              </Link>
+                <Image 
+                      src="/logo-smsservices.png"
+                      alt="logo sms services"
+                      className="object-cover"
+                      quality={100}
+                      width={150}
+                      height={25}
+                    />
+                </Link>
               <button className="text-black text-3xl" onClick={toggleNavbar}>
                 &times;
               </button>

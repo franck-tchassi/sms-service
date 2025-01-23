@@ -83,7 +83,7 @@ const ALaCarte = () => {
     {
       name: "Contour portes",
       description: "Service pour maintenir l’éclat de votre véhicule et offrir une expérience propre à chaque ouverture de porte.",
-      price: "15£",
+      price: "15€",
     },
   ];
 

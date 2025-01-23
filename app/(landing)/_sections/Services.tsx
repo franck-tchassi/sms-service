@@ -18,7 +18,7 @@ const Services = () => {
     {
       title: "Lavage Intérieur",
       duration: "1h",
-      price: "dès* £30.00" ,
+      price: "dès* €30.00" ,
       features: [
         "Aspiration des moquettes",
         "Aspiration des contre-portes",
@@ -31,7 +31,7 @@ const Services = () => {
     {
       title: "Lavage Extérieur",
       duration: "1h",
-      price: "dès* £25.00" ,
+      price: "dès* €25.00" ,
       features: [
         "Nettoyage de la carrosserie",
         "Nettoyage des jantes",
@@ -44,7 +44,7 @@ const Services = () => {
     {
       title: "Lavage Complet",
       duration: "2h",
-      price: "dès* £49.00" ,
+      price: "dès* €49.00" ,
       features: [
         "Lavage Intérieur",
         "Lavage Extérieur",

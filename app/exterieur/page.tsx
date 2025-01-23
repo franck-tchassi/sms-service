@@ -159,7 +159,7 @@ const ExterieurPage = () => {
                   <CardFooter className="bg-white p-4 text-center flex flex-col">
                     {tarif.prices.map((px, index) => (
                       <div key={index} className="mb-2"> 
-                          {px}£
+                          {px}€
                       </div>
                     ))}
                   </CardFooter>
