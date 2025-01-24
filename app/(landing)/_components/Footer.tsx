@@ -21,14 +21,15 @@ const Footer = () => {
           data-aos="fade-up"
           data-aos-duration="1500"
         >
+        
           
           <Image 
-              src="/logo-smsservices.png"
-              alt="logo sms services"
-              className="object-cover"
-              quality={100}
-              width={150}
-              height={25}
+            src="/logo-smsservices-copi.png"
+            alt="logo sms services"
+            className="object-cover mb-4"
+            quality={100}
+            width={150}
+            height={25}
           />
           <div className=" text-sm">
             <p>240 Rte d&apos;Avignon, 84250 Le Thor</p>
