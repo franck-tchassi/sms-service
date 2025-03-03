@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
-import ImageUploadModal from "@/components/ImageUpdatePost";
+//import { useSession } from "next-auth/react";
+//import ImageUploadModal from "@/components/ImageUpdatePost";
 
 
 const About = () => {
@@ -25,14 +25,6 @@ const About = () => {
         {/* Section Image avec bouton Modifier */}
         <div className="w-full md:w-1/2 relative group">
           <Image src={imageSrc} alt="Voiture de SMS Services" width={600} height={400} className="rounded-full shadow-lg object-cover" />
-          {status === "authenticated" && (
-            <button
-              onClick={openModal}
-              className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
-            >
-              Modifier image
-            </button>
-          )}
         </div>
 
         {/* Section Texte */}
@@ -47,8 +39,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Affichage du modal d'upload */}
-      <ImageUploadModal isOpen={isModalOpen} onClose={closeModal} onUpload={handleImageUpload} />
+     
     </section>
   );
 };
