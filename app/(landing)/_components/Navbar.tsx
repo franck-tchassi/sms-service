@@ -12,11 +12,14 @@ import AOS from 'aos'
 import 'aos/dist/aos.css';
 import { FaInfoCircle, FaDollarSign } from 'react-icons/fa';
 import Image from "next/image";
+import { useSession, signOut } from "next-auth/react";
 
 
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
   const [isServices, setIsServices] = useState(false)
+  const { data: session, status } = useSession();
+  
   
   
 
@@ -39,6 +42,7 @@ const Navbar = () => {
     AOS.init({  
       duration: 500
     });
+
   }, []);
 
   
@@ -55,7 +59,7 @@ const Navbar = () => {
               <div className="flex-shrink-0">
                 <Link href="/" className="text-blue-700">
                   <Image 
-                    src="/logo-smsservices.png"
+                    src="/logo-smsservices-copi.png"
                     alt="logo sms services"
                     className="object-cover"
                     quality={100}
@@ -167,10 +171,29 @@ const Navbar = () => {
                     {/* Téléphone */}
                     <span className="text-white text-sm flex items-center" >07.71.52.69.27</span>
 
+                    {/* se connecter */}
+                    {status === "authenticated" ? (
+                      <button 
+                        className="text-white text-sm flex items-center"
+                        onClick={() => signOut()}
+                      >
+                        Se déconnecter
+                      </button>)
+                      :
+                      (
+                        <Link href={"/login"} className="text-white text-sm flex items-center">
+                          Se connecter
+                        </Link>
+                      )
+                    }
+                    
+
                     {/* Rendez-vous */}
-                    <Button variant={"outline"} className="snake-border-clockwise flex items-center " data-aos="fade-right" data-aos-duration="4000">
-                        <Link href={"/rdv"}>Rendez-vous</Link>
-                    </Button>
+                    <Link href={"/rdv"}>
+                      <Button variant={"blue"} size={"sm"} className="snake-border-clockwise flex items-center rounded-lg" data-aos="fade-right" data-aos-duration="4000">
+                          Rendez-vous
+                      </Button>
+                    </Link>
                 </NavigationMenuList>
             </NavigationMenu>
 
@@ -211,7 +234,7 @@ const Navbar = () => {
             <div className="flex justify-between p-4 z-50 items-center">
               <Link href="/" className="text-blue-700" onClick={toggleNavbar}>
                 <Image 
-                      src="/logo-smsservices.png"
+                      src="/logo-smsservices-copi.png"
                       alt="logo sms services"
                       className="object-cover"
                       quality={100}
@@ -236,6 +259,9 @@ const Navbar = () => {
                 <Link href="/apropos" className=" block hover:text-gray-300 text-sm" onClick={toggleNavbar}>
                   À propos
                 </Link>
+                <Link href="/login" className=" block hover:text-gray-300 text-sm" onClick={toggleNavbar}>
+                  Se connecter
+                </Link>
                 <span className=" block text-sm">
                   07.71.52.69.27
                 </span>
@@ -243,11 +269,11 @@ const Navbar = () => {
 
               {/* Fixer le bouton "Rendez-vous" en bas de l'écran */}
               <div className="px-4 py-4 fixed bottom-0 left-0 w-full bg-white bg-opacity-90 z-50 flex justify-center items-center">
-                <button className=" w-36 py-3 bg-blue-700 text-white rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105 focus:outline-none flex justify-center items-center">
-                  <Link href="/rdv" onClick={toggleNavbar} className="text-white text-sm font-semibold">
-                    Rendez-vous
-                  </Link>
-                </button>
+                
+                {/* Rendez-vous */}
+                <Button variant={"blue"} size={"sm"} className="snake-border-clockwise flex items-center rounded-lg">
+                    <Link href={"/rdv"} onClick={toggleNavbar} className="font-semibold">Rendez-vous</Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -349,11 +375,11 @@ const Navbar = () => {
 
             {/* Fixer le bouton "Rendez-vous" en bas de l'écran */}
             <div className="px-4 py-4 fixed bottom-0 left-0 w-full  bg-opacity-90 z-50 flex justify-center items-center">
-                <button className=" w-36 py-3 bg-blue-700  rounded-full shadow-lg hover:bg-blue-500 transition duration-300 transform hover:scale-105 focus:outline-none flex justify-center items-center">
-                  <Link href="/rdv" onClick={toggleCloseAll} className="text-white text-sm font-semibold">
-                    Rendez-vous
-                  </Link>
-                </button>
+                
+                {/* Rendez-vous */}
+                <Button variant={"blue"} size={"sm"} className="snake-border-clockwise flex items-center rounded-lg">
+                    <Link href={"/rdv"} onClick={toggleCloseAll} className="font-semibold">Rendez-vous</Link>
+                </Button>
               </div>
           </div>)
           :

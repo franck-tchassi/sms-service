@@ -1,27 +1,57 @@
 "use client";
 
-import React, { useActionState } from "react";
-import { useFormStatus } from "react-dom";
-import { sendMessage } from "./_actions/actions"; // Import de l'action côté serveur
-import { ButtonSubmit } from "./ButtonSubmit";
-import { responseMessages } from "./_actions/response-message";
+import React, { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
 import Image from "next/image";
 
-// Déclaration du composant SubmitButton
-const SubmitButton: React.FC = () => {
-  const { pending } = useFormStatus();
-  return <ButtonSubmit disabled={pending}>Envoyer</ButtonSubmit>;
-};
-
-
 const RdvPage = () => {
-  const [state, formAction] = useActionState(sendMessage, { message: "" });
+  const [state, setState] = useState<{ message: string; status: "success" | "error" | null }>({
+    message: "",
+    status: null,
+  });
+
+  const formRef = useRef<HTMLFormElement | null>(null); // Création d'une référence pour le formulaire
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      prenom: formData.get("prenom") as string,
+      tel: formData.get("tel") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+      service: formData.get("service") as string,
+      formule: formData.get("formule") as string,
+      date_heure: formData.get("date_heure") as string,
+    };
+
+    try {
+      // Envoyer l'email via EmailJS
+      const response = await emailjs.send(
+        "service_0a7u4sr", // Remplacez par votre Service ID
+        "template_2wdms9a", // Remplacez par votre Template ID
+        data,
+        "eQaugTNKEjziBK81r" // Remplacez par votre Public Key
+      );
+
+      if (response.status === 200) {
+        setState({ message: "Message envoyé avec succès", status: "success" });
+        formRef.current?.reset(); // Réinitialiser le formulaire après un envoi réussi
+      } else {
+        setState({ message: "Erreur lors de l'envoi du message", status: "error" });
+      }
+    } catch (error) {
+      console.error("Erreur :", error);
+      setState({ message: "Erreur lors de l'envoi du message", status: "error" });
+    }
+  };
 
   return (
     <div className="bg-gray-50">
       {/* En-tête */}
       <div className="relative text-white text-center">
-        {/* Conteneur de l'image */}
         <div className="relative h-[200px]">
           <Image
             src="/IMG-20250119-WA0012.jpg"
@@ -30,11 +60,10 @@ const RdvPage = () => {
             className="object-cover"
             quality={100}
           />
-          {/* Texte positionné sur l'image */}
           <div className="absolute inset-0 flex items-center justify-center bg-black/50 px-4 sm:px-6 lg:px-8">
             <h1
               className="text-2xl sm:text-3xl mt-0 mb-0 md:text-4xl lg:text-5xl font-extrabold"
-              style={{ lineHeight: "200px" }} // Assurez l'alignement
+              style={{ lineHeight: "200px" }}
               data-aos="fade-up"
             >
               PRISE DE RENDEZ-VOUS
@@ -44,7 +73,7 @@ const RdvPage = () => {
       </div>
 
       {/* Formulaire */}
-      <form action={formAction} className="p-12 text-black space-y-4 text-start max-w-md mx-auto">
+      <form onSubmit={handleSubmit} ref={formRef} className="p-12 text-black space-y-4 text-start max-w-md mx-auto">
         {/* Nom */}
         <div className="space-y-1">
           <label htmlFor="name" className="font-bold text-sm">Nom</label>
@@ -93,7 +122,7 @@ const RdvPage = () => {
             type="email"
             required
             placeholder="Entrez votre email"
-            className="w-full p-2 text-sm  rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
+            className="w-full p-2 text-sm rounded-lg border border-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
           />
         </div>
 
@@ -157,21 +186,21 @@ const RdvPage = () => {
 
         {/* Message de soumission */}
         {state.message && (
-          <p className={`text-sm ${state.message === responseMessages.success ? "text-green-500" : "text-red-500"}`}>
+          <p className={`text-sm ${state.status === "success" ? "text-green-500" : "text-red-500"}`}>
             {state.message}
           </p>
         )}
 
         {/* Bouton de soumission */}
-        <SubmitButton />
+        <button
+          type="submit"
+          className="w-full p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+        >
+          Envoyer
+        </button>
       </form>
     </div>
   );
 };
 
 export default RdvPage;
-
-
-
-
-

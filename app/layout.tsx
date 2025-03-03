@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(landing)/_components/Navbar";
 import Footer from "./(landing)/_components/Footer";
+import QueryProvider from "@/utils/QueryClient";
+import NextAuthSessionProvider from "@/provider/NextAuthSessionProvider";
+import TotastProvider from "@/provider/TotastProvider";
 
 
 const geistSans = Geist({
@@ -42,11 +45,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
-          <Navbar />
-          {children}
-        
-          <Footer />
+        <NextAuthSessionProvider>
+          <TotastProvider />
+          <QueryProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </QueryProvider>
+          </NextAuthSessionProvider>
+          
       </body>
     </html>
   );
