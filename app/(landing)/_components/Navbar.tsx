@@ -12,13 +12,13 @@ import AOS from 'aos'
 import 'aos/dist/aos.css';
 import { FaInfoCircle, FaDollarSign } from 'react-icons/fa';
 import Image from "next/image";
-import { useSession, signOut } from "next-auth/react";
+//import { useSession, signOut } from "next-auth/react";
 
 
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
   const [isServices, setIsServices] = useState(false)
-  const {  status } = useSession();
+  //const {  status } = useSession();
   
   
   
@@ -171,7 +171,7 @@ const Navbar = () => {
                     {/* Téléphone */}
                     <span className="text-white text-sm flex items-center" >07.71.52.69.27</span>
 
-                    {/* se connecter */}
+                    {/* se connecter 
                     {status === "authenticated" ? (
                       <button 
                         className="text-white text-sm flex items-center"
@@ -186,6 +186,7 @@ const Navbar = () => {
                         </Link>
                       )
                     }
+                    */}
                     
 
                     {/* Rendez-vous */}
