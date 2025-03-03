@@ -9,7 +9,7 @@ import ImageUploadModal from "@/components/ImageUpdatePost";
 const About = () => {
   const [imageSrc, setImageSrc] = useState("/IMG-20250119-WA0002.jpg");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data: session, status } = useSession();
+  const {  status } = useSession();
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -30,7 +30,7 @@ const About = () => {
               onClick={openModal}
               className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
             >
-              Modifier l'image
+              Modifier image
             </button>
           )}
         </div>

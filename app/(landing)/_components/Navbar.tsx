@@ -18,7 +18,7 @@ import { useSession, signOut } from "next-auth/react";
 const Navbar = () => {
   const [isClick, setIsClick] = useState(false);
   const [isServices, setIsServices] = useState(false)
-  const { data: session, status } = useSession();
+  const {  status } = useSession();
   
   
   
