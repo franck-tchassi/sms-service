@@ -1,5 +1,6 @@
-export const responseMessages ={
-    failed: "Failed to send message.",
-    success: "Message envoyé avec success.",
-    alreadySend: "Message already sent.",
-}
+export const responseMessages = {
+    failed: "Échec de l'envoi du message.",
+    success: "Message envoyé avec succès.",
+    alreadySend: "Message déjà envoyé.",
+};
+  

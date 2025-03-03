@@ -1,18 +1,18 @@
 
-interface LandingLayoutProps {
-    children: React.ReactNode;
+import React from 'react'
+
+interface ProtectedRootLayoutProps{
+    children: React.ReactNode
 }
 
+export default async function ProtectedRootLayout({children}: ProtectedRootLayoutProps) {
 
-const LandingLayout = ({children}: LandingLayoutProps) =>{
+   
 
-    return(
-        <>
-           
-           {children}
-        
-        </>
-    )
+    
+  return (
+    <main>
+        {children}
+    </main>
+  )
 }
-
-export default LandingLayout;

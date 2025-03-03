@@ -8,15 +8,16 @@ import Avis from "./_sections/Avis";
 import Maps from "./_sections/Maps";
 
 
-const  LandingPage = () => {
+
+const LandingPage = () => {
   return (
     <div className="justify-center items-center w-full">
-       <Hero />
-       <Apropos />
-       <Services />
-       <Satisfaction />
-       <Avis />
-       <Maps />
+      <Hero />
+      <Apropos />
+      <Services />
+      <Satisfaction />
+      <Avis />
+      <Maps />
     </div>
   );
 }
